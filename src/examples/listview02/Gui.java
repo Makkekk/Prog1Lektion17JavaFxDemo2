@@ -42,13 +42,13 @@ public class Gui extends Application {
         pane.setVgap(10);
 
         // add a label to the pane (at col=0, row=0)
-        Label lblName = new Label("Name:");
-        pane.add(lblName, 0, 0);
+        Label nameLabel = new Label("Name:");
+        pane.add(nameLabel, 0, 0);
 
         // add a label to the pane (at col=0, row=1)
-        Label lblNames = new Label("Names:");
-        pane.add(lblNames, 0, 1);
-        GridPane.setValignment(lblNames, VPos.TOP);
+        Label namesLabel = new Label("Names:");
+        pane.add(namesLabel, 0, 1);
+        GridPane.setValignment(namesLabel, VPos.TOP);
 
         // add a text field to the pane (at col=1, row=0)
         pane.add(nameTextField, 1, 0);
@@ -59,26 +59,25 @@ public class Gui extends Application {
         namesListView.setPrefHeight(200);
         namesListView.getItems().setAll(this.initNames());
 
-        ChangeListener<String> listener = (ov, oldString, newString) -> this.selectionChanged();
+        ChangeListener<String> listener = (ov, oldString, newString) -> selectionChanged();
         namesListView.getSelectionModel().selectedItemProperty().addListener(listener);
 
         namesListView.getSelectionModel().clearSelection();
 
         // add a button to the pane (at col=4, row=0)
-        Button btnAdd = new Button("Add");
-        pane.add(btnAdd, 4, 0);
+        Button addButton = new Button("Add");
+        pane.add(addButton, 4, 0);
         // btnAdd.setDefaultButton(true);
 
         // connect a method to the button
-        btnAdd.setOnAction(event -> this.addAction());
+        addButton.setOnAction(event -> addAction());
 
         // add a button to the pane (at col=4, row=1)
-        Button btnDelete = new Button("Delete");
-        pane.add(btnDelete, 4, 1);
+        Button deleteButton = new Button("Delete");
+        pane.add(deleteButton, 4, 1);
 
         // connect a method to the button
-        btnDelete.setOnAction(event -> this.deleteAction());
-
+        deleteButton.setOnAction(event -> deleteAction());
     }
 
     private void selectionChanged() {
