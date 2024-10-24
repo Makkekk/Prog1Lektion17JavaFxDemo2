@@ -1,4 +1,4 @@
-package Opgave3;
+package Opgave3.Model;
 
 public class Person {
     private String name;

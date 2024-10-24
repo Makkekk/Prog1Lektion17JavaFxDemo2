@@ -61,9 +61,9 @@ public class Gui extends Application {
     }
 
     private void initPersons() {
-        people.add(new Person("Jens", "Jensen", "jj@eaaa.dk"));
-        people.add(new Person("Hans", "Hansen", "hh@eaaa.dk"));
-        people.add(new Person("Pia", "Peters", "pp@eaaa.dk"));
+        people.add(new Person("Jens"));
+        people.add(new Person("Hans"));
+        people.add(new Person("Pia"));
     }
 
 
@@ -78,7 +78,7 @@ public class Gui extends Application {
     private void addAction() {
         String name = nameTextField.getText().trim();
         if (name.length() > 0) {
-            Person p = new Person(name, "Hansen", name + "@mail.com");
+            Person p = new Person(name);
             people.add(p);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
